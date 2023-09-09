@@ -29,5 +29,5 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.SA_SUPER_SECRET }} 
         DOCKER_PASSWORD: ${{ secrets.PASA_SUPER_SECRET }}
       run: |
-        docker build -t container .
+        docker build -t ayasaoudi/myfirstimage:latest .
         docker push ayasaoudi/myfirstimage:latest
