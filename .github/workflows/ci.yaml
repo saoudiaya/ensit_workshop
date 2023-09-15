@@ -26,9 +26,11 @@ jobs:
 
     - name: Build and Push Docker image
       env:
-        DOCKER_USERNAME: ${{ secrets.SA_SUPER_SECRET }} 
+        DOCKER_USERNAME: ${{ secrets.SA_SUPER_SECRET }}
         DOCKER_PASSWORD: ${{ secrets.PASA_SUPER_SECRET }}
+        IMAGE_NAME: myfirstimage
+        IMAGE_TAG: latest
       run: |
-        docker build -t ayasaoudi/myfirstimage:latest .
-        docker login -u $SA_SUPER_SECRET -p $PASA_SUPER_SECRET
-        docker push ayasaoudi/myfirstimage:latest
+        docker build -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG .
+        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        docker push $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG
