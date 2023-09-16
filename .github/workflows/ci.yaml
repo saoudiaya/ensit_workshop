@@ -3,12 +3,8 @@ name: Node.js CI
 on:
   push:
     branches:
-<<<<<<< HEAD
       - eya-branch
-=======
       - main
->>>>>>> c5e3fb48d2c145f3e6dfc129ee4cd67d379d805d
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,19 +16,14 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-<<<<<<< HEAD
         node-version: 18.12.1
-=======
         node-version: 18
->>>>>>> c5e3fb48d2c145f3e6dfc129ee4cd67d379d805d
 
     - name: Install dependencies
       run: npm install
 
     - name: Run tests
       run: npm test
-
-<<<<<<< HEAD
     - name: Build and Push Docker image
       env:
         DOCKER_USERNAME: ${{ secrets.SA_SUPER_SECRET }}
@@ -43,6 +34,3 @@ jobs:
         docker build -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG .
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         docker push $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG
-=======
-
->>>>>>> c5e3fb48d2c145f3e6dfc129ee4cd67d379d805d
